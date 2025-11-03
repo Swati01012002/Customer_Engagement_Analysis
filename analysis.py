@@ -17,4 +17,16 @@ df.columns
 
 labels = ['Young Adult', 'Adult', 'Middle-aged', 'Senior']
 df['age-group'] = pd.qcut(df['age'], q=4, labels = labels)
-print(df[['age', 'age-group']].head(10))
+df[['age', 'age-group']].head(10)
+
+frequency_mapping = {
+    'Fortnightly': 14,
+    'Weekly': 7,
+    'Monthly': 30,
+    'Quaterly': 90,
+    'Bi-Weekly': 14,
+    'Annually': 365,
+    'Every 3 Months': 90
+}
+df['purchase_frequency_days'] = df['frequency_of_purchase'].map(frequency_mapping)
+df[['purchase_frequency_days', 'frequency_of_purchase']].head(10)
