@@ -34,3 +34,5 @@ print(df[['purchase_frequency_days', 'frequency_of_purchases']].head(10))
 print((df['discount_applied'] == df['promo_code_used']).all())
 df = df.drop('promo_code_used', axis=1)
 print(df.columns)
+
+df.to_csv('customer_shopping_behavior_cleaned.csv', index=False)
